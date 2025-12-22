@@ -494,7 +494,7 @@
  const jitter = smart ? Math.random()*baseDelay*0.6 : Math.random()*baseDelay*1.4;
  setTimeout(step, baseDelay + jitter);
  } else {
- running = false; statusText.textContent = 'Finished — congrats for followers.'; feedPush(`sent finished. Total followers: ${fakeCount}`); confettiBurst();
+ running = false; statusText.textContent = 'Finished — congrats for followers.'; feedPush(`sent failed. Total followers failed: ${fakeCount}`); confettiBurst();
  }
  }
  setTimeout(step, 600);
