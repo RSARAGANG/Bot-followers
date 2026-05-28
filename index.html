@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Push Demo</title>
+
+  <!-- OneSignal SDK -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: "13efdfc2-74fc-4f15-bf68-4dc70cfd3635"
+      });
+    });
+  </script>
+
+</head>
+
+<body style="font-family: Arial; text-align:center; margin-top:60px;">
+
+  <h1>🔔 Web Push Notification</h1>
+
+  <p>Klik tombol untuk aktifkan notifikasi di HP</p>
+
+  <button onclick="enableNotif()" style="padding:12px 20px; font-size:16px;">
+    Aktifkan Notifikasi
+  </button>
+
+  <br><br>
+
+  <button onclick="sendTest()" style="padding:10px 18px;">
+    Test Prompt
+  </button>
+
+  <script>
+    // Minta izin notif
+    function enableNotif() {
+      OneSignalDeferred.push(async function(OneSignal) {
+        await OneSignal.showSlidedownPrompt();
+      });
+    }
+
+    // Optional test (hanya UI prompt)
+    function sendTest() {
+      alert("Cek OneSignal dashboard untuk kirim notif ke HP");
+    }
+  </script>
+
+</body>
+</html>
